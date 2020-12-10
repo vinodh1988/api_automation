@@ -1,0 +1,17 @@
+pm.sendRequest("http://localhost:9000/people", function (err, response) {
+              let  people = response.json();
+
+              let largest =0;
+
+              for(let x of people){
+                  if(x.id > largest)
+                    largest = x.id;
+              }
+
+    let names = ["Ganesh","Peterson","Steven","Monish","Jagath","Harsha","Harry","Fiaz","Vinay","Suresh"];
+    let cities = ["Chennai","Mumbai","Nagpur","Goa","Bangalore"];
+    pm.variables.set("id",Number(largest)+1);
+    pm.variables.set("name",names[Math.round(Math.random()*9)]);
+    pm.variables.set("city",cities[Math.round(Math.random()*4)]);
+
+});
