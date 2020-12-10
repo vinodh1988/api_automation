@@ -1,0 +1,12 @@
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+    pm.test("Response time is less than 700ms", function () {
+        pm.expect(pm.response.responseTime).to.be.below(700);
+    });
+
+    pm.test("Your test name", function () {
+        var jsonData = pm.response.json();
+        console.log(jsonData);
+        pm.expect(jsonData.id).to.be.equal(1);
+    });
+});
